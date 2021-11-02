@@ -12,14 +12,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.bridgelabz.employeepayrollapp.dto.EmployeePayrollDTO;
+import com.bridgelabz.employeepayrollapp.dto.ResponseDTO;
+import com.bridgelabz.employeepayrollapp.model.EmployeePayrollData;
 
 @RestController
 @RequestMapping("/employeepayrollservice")
 public class EmployeePayrollController {
 	
 	@RequestMapping(value = {"", "/", "/get"})
-	public ResponseEntity<String> getEmployeePayrollData(){
-		return new ResponseEntity<String>("Get Call Success", HttpStatus.OK);
+	public ResponseEntity<ResponseDTO> getEmployeePayrollData(){
+		EmployeePayrollData employeePayrollData = null;
+		employeePayrollData = new EmployeePayrollData(1, new EmployeePayrollDTO("Pankaj", 3000));
+		ResponseDTO respDTO = new ResponseDTO("Get Call Success", employeePayrollData);
+		return new ResponseEntity<ResponseDTO>(respDTO, HttpStatus.OK);
 	}
 	
 	@GetMapping("/get/{empId}")
