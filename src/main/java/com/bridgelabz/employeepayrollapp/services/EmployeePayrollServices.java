@@ -20,8 +20,9 @@ public class EmployeePayrollServices implements IEmployeePayrollService{
 
 	@Override
 	public EmployeePayrollData getEmployeePayrollDataById(int empId) {
-		// TODO Auto-generated method stub
-		return null;
+		EmployeePayrollData employeePayrollData = null;
+		employeePayrollData = new EmployeePayrollData(empId, new EmployeePayrollDTO("Pankaj", 3000));
+		return employeePayrollData;
 	}
 
 	@Override
