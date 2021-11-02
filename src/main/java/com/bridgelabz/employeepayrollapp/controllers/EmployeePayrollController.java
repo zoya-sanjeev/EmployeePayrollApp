@@ -28,15 +28,20 @@ public class EmployeePayrollController {
 	}
 	
 	@GetMapping("/get/{empId}")
-	public ResponseEntity<String> getEmployeePayrollData(@PathVariable("empId") int empId){
-		return new ResponseEntity<String>("Get Call Success for id: " + empId, HttpStatus.OK);
+	public ResponseEntity<ResponseDTO> getEmployeePayrollData(@PathVariable("empId") int empId){
+		EmployeePayrollData employeePayrollData = null;
+		employeePayrollData = new EmployeePayrollData(1, new EmployeePayrollDTO("Pankaj", 3000));
+		ResponseDTO respDTO = new ResponseDTO("Get Call  For ID Successfull", employeePayrollData);
+		return new ResponseEntity<ResponseDTO>(respDTO, HttpStatus.OK);
 	}
 	
 	@PostMapping("/create")
-	public ResponseEntity<String> addEmployeePayrollData(
+	public ResponseEntity<ResponseDTO> addEmployeePayrollData(
 				@RequestBody EmployeePayrollDTO empPayrollDTO){
-		return new ResponseEntity<String>("Created Employee Payroll Data for: "
-				+ empPayrollDTO, HttpStatus.OK);
+		EmployeePayrollData employeePayrollData = null;
+		employeePayrollData = new EmployeePayrollData(1, empPayrollDTO);
+		ResponseDTO respDTO = new ResponseDTO("Created Employee Pyroll Data Successfully", employeePayrollData);
+		return new ResponseEntity<ResponseDTO>(respDTO, HttpStatus.OK);
 	}
 	
 	@PutMapping("/update")
