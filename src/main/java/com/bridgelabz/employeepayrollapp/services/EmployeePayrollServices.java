@@ -27,19 +27,20 @@ public class EmployeePayrollServices implements IEmployeePayrollService{
 
 	@Override
 	public EmployeePayrollData createEmployeePayrollData(EmployeePayrollDTO empPayrollDTO) {
-		// TODO Auto-generated method stub
-		return null;
+		EmployeePayrollData employeePayrollData = null;
+		employeePayrollData = new EmployeePayrollData(1, empPayrollDTO);
+		return employeePayrollData;
 	}
 
 	@Override
 	public EmployeePayrollData updateEmployeePayrollData(int empId, EmployeePayrollDTO empPayrollDTO) {
-		// TODO Auto-generated method stub
-		return null;
+		EmployeePayrollData employeePayrollData = null;
+		employeePayrollData = new EmployeePayrollData(empId, empPayrollDTO);
+		return employeePayrollData;
 	}
 
 	@Override
 	public void deleteEmployeePayrollData(int empId) {
-		// TODO Auto-generated method stub
 		
 	}
 
