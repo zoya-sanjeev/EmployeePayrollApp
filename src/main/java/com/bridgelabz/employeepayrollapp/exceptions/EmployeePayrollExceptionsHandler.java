@@ -26,5 +26,11 @@ public class EmployeePayrollExceptionsHandler {
 		return new ResponseEntity<ResponseDTO>(response, HttpStatus.BAD_REQUEST);
 	}
 	
+	@ExceptionHandler(EmployeePayrollException.class)
+	public ResponseEntity<ResponseDTO> handleEmployeePayrollException(EmployeePayrollException exception) {
+		ResponseDTO response = new ResponseDTO("Exception while processing request", exception.getMessage());
+		return new ResponseEntity<ResponseDTO>(response, HttpStatus.BAD_REQUEST);
+	}
+	
 
 }
