@@ -6,6 +6,8 @@ import java.util.List;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.Pattern;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import lombok.ToString;
 
 public @ToString class EmployeePayrollDTO {
@@ -17,6 +19,7 @@ public @ToString class EmployeePayrollDTO {
 	
 	public String gender;
 	
+	@JsonFormat(pattern="dd MMM yyyy")
 	public LocalDate startDate;
 	
 	public String note;
