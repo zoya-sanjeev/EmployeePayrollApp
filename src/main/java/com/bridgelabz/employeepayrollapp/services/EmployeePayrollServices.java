@@ -23,15 +23,15 @@ public class EmployeePayrollServices implements IEmployeePayrollService{
 	private List<EmployeePayrollData> employeePayrollList = new ArrayList<EmployeePayrollData>();
 	@Override
 	public List<EmployeePayrollData> getEmployeePayrollData() {
-		return employeePayrollList;
+		return employeeRepository.findAll();
 	}
 
 	@Override
 	public EmployeePayrollData getEmployeePayrollDataById(int empId) {
-		return employeePayrollList.stream()
-				.filter(empData -> empData.getEmployeeId() == empId)
-				.findFirst()
-				.orElseThrow(() ->  new EmployeePayrollException("Employee Not Found"));
+		return employeeRepository
+				.findById(empId)
+				.orElseThrow(() ->  new EmployeePayrollException("Employee with id "+ 
+							empId + " does not exist..!"));
 	}
 
 	@Override
