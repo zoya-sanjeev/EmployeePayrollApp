@@ -52,7 +52,8 @@ public class EmployeePayrollServices implements IEmployeePayrollService{
 
 	@Override
 	public void deleteEmployeePayrollData(int empId) {
-		employeePayrollList.remove(empId-1);
+		EmployeePayrollData employeePayrollData = this.getEmployeePayrollDataById(empId);
+		employeeRepository.delete(employeePayrollData);
 	}
 
 }
